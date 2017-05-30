@@ -39,10 +39,10 @@ public class TestSQLDB {
         Assert.assertNotNull(resultSet);
         try {
             Assert.assertEquals(resultSet.getMetaData().getColumnCount(), 4);
-            Assert.assertEquals("actor_id",resultSet.getMetaData().getColumnName(1));
-            Assert.assertEquals("first_name",resultSet.getMetaData().getColumnName(2));
-            Assert.assertEquals("last_name",resultSet.getMetaData().getColumnName(3));
-            Assert.assertEquals("last_update",resultSet.getMetaData().getColumnName(4));
+            Assert.assertEquals(resultSet.getMetaData().getColumnName(1),"actor_id");
+            Assert.assertEquals(resultSet.getMetaData().getColumnName(2),"first_name");
+            Assert.assertEquals(resultSet.getMetaData().getColumnName(3),"last_name");
+            Assert.assertEquals(resultSet.getMetaData().getColumnName(4),"last_update");
 
             while (resultSet.next()){
                 System.out.println(resultSet.getString(1)+ " " +
@@ -63,17 +63,10 @@ public class TestSQLDB {
         Assert.assertNotNull(resultSet);
         try {
             Assert.assertEquals(resultSet.getMetaData().getColumnCount(), 4);
-            Assert.assertEquals("actor_id",resultSet.getString(1));
-            Assert.assertEquals("first_name",resultSet.getString(2));
-            Assert.assertEquals("last_name",resultSet.getString(3));
-            Assert.assertEquals("last_update",resultSet.getString(4));
-
-            while (resultSet.next()){
-                System.out.println(resultSet.getString(1)+ " " +
-                        resultSet.getString(2) + " " +
-                        resultSet.getString(3) + " " +
-                        resultSet.getString(4) + "\n");
-            }
+            resultSet.next();
+            Assert.assertEquals(resultSet.getString(1),"301");
+            Assert.assertEquals(resultSet.getString(2),"uliana");
+            Assert.assertEquals(resultSet.getString(3),"pizhanska");
         }
         catch (SQLException e){
             e.printStackTrace();
