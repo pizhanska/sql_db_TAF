@@ -13,6 +13,7 @@ public class ActorObj implements Serializable{
     private String lastName;
     private Date lastUpdate;
 
+
     public int getActorId() {
         return actorId;
     }
