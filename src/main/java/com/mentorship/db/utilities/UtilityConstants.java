@@ -4,7 +4,7 @@ package com.mentorship.db.utilities;
  * Created by Uliana Pizhanska on 30/05/2017.
  */
 public final class UtilityConstants {
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull";
     public static final String DB_USER = "root";
     public static final String PASSWORD = "12345trewq";
     public static final String DB_CLASS = "com.mysql.cj.jdbc.Driver";
