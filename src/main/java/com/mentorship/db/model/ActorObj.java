@@ -1,11 +1,11 @@
 package com.mentorship.db.model;
 
+import com.mentorship.db.operations.ActorDAO;
+
 import java.io.Serializable;
 import java.sql.Date;
+import static com.mentorship.db.operations.ActorDAO.getCurrentTimeStamp;
 
-/**
- * Created by Uliana Pizhanska on 04/06/2017.
- */
 public class ActorObj implements Serializable{
     private static final long serialVersionUID = 1L;
     private int actorId;
@@ -13,7 +13,16 @@ public class ActorObj implements Serializable{
     private String lastName;
     private Date lastUpdate;
 
+    public ActorObj(){
 
+    }
+
+    public ActorObj(int actorId, String firstName, String lastName){
+        this.actorId = actorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.lastUpdate = getCurrentTimeStamp();
+    }
     public int getActorId() {
         return actorId;
     }

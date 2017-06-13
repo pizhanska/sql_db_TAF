@@ -12,12 +12,11 @@ import static com.mentorship.db.utilities.UtilityConstants.*;
  */
 public abstract class BaseDAO <T, K>{
 
-    private Connection connection;
-    public abstract List<T> getAll();
-    public abstract int update(T entity);
-    public abstract T getEntityById(K id);
-    public abstract int delete(K id);
-    public abstract int create(T entity);
+    public abstract List<T> getAll(Connection connection);
+    public abstract int update(T entity, int id, Connection connection);
+    public abstract T getEntityById(K id, Connection connection);
+    public abstract int delete(K id, Connection connection);
+    public abstract int create(T entity, Connection connection);
 
 
 
@@ -33,15 +32,16 @@ public abstract class BaseDAO <T, K>{
         }
     }
 
-    public PreparedStatement getPrepareStatement(String sql) {
+    public PreparedStatement getPrepareStatement(String sql ,Connection connection) {
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
+            return ps;
         } catch (SQLException e) {
             e.printStackTrace();
+            return ps;
         }
 
-        return ps;
     }
 
     public void closePrepareStatement (PreparedStatement ps) {
